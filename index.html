@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lhenny + Dolma · 10.18.26</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Pinyon+Script&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --white:    #fdfaf5;
+      --off:      #f5f0e8;
+      --charcoal: #1a1a1a;
+      --saffron:  #c8860a;
+      --saffron2: #e8a826;
+      --crimson:  #8b1a1a;
+      --crimson2: #b02020;
+      --sage:     #6b8263;
+      --sage2:    #9ab090;
+      --gold:     #b8962e;
+      --gold2:    #d4af47;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white);
+      color: var(--charcoal);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+```
+/* ── Trim SVG wrappers ── */
+.dzong-eave { width:100%; overflow:hidden; line-height:0; display:block; }
+.dzong-eave svg { display:block; width:100%; }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 100px 24px 80px;
+  text-align: center;
+  background: var(--white);
+  overflow: hidden;
+}
+.hero::before, .hero::after {
+  content: '';
+  position: absolute;
+  width: 420px; height: 420px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.hero::before {
+  top: 60px; left: -20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cellipse cx='80' cy='60' rx='55' ry='28' fill='%236b8263' transform='rotate(-30 80 60)'/%3E%3Cellipse cx='140' cy='90' rx='48' ry='22' fill='%236b8263' transform='rotate(10 140 90)'/%3E%3Cellipse cx='55' cy='135' rx='42' ry='20' fill='%239ab090' transform='rotate(-50 55 135)'/%3E%3Cellipse cx='175' cy='38' rx='35' ry='16' fill='%239ab090' transform='rotate(20 175 38)'/%3E%3Cline x1='80' y1='60' x2='175' y2='38' stroke='%236b8263' stroke-width='1.5' opacity='0.7'/%3E%3Cline x1='80' y1='60' x2='55' y2='135' stroke='%236b8263' stroke-width='1.5' opacity='0.7'/%3E%3Cline x1='80' y1='60' x2='140' y2='90' stroke='%236b8263' stroke-width='1.5' opacity='0.7'/%3E%3C/svg%3E");
+}
+.hero::after {
+  bottom: 60px; right: -20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cellipse cx='220' cy='240' rx='55' ry='28' fill='%236b8263' transform='rotate(30 220 240)'/%3E%3Cellipse cx='160' cy='210' rx='48' ry='22' fill='%236b8263' transform='rotate(-10 160 210)'/%3E%3Cellipse cx='245' cy='165' rx='42' ry='20' fill='%239ab090' transform='rotate(50 245 165)'/%3E%3Cellipse cx='125' cy='262' rx='35' ry='16' fill='%239ab090' transform='rotate(-20 125 262)'/%3E%3Cline x1='220' y1='240' x2='125' y2='262' stroke='%236b8263' stroke-width='1.5' opacity='0.7'/%3E%3Cline x1='220' y1='240' x2='245' y2='165' stroke='%236b8263' stroke-width='1.5' opacity='0.7'/%3E%3Cline x1='220' y1='240' x2='160' y2='210' stroke='%236b8263' stroke-width='1.5' opacity='0.7'/%3E%3C/svg%3E");
+}
+.hero-inner { position: relative; z-index: 2; max-width: 660px; }
+
+.hero-eyebrow {
+  font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.4em;
+  color: var(--saffron); text-transform: uppercase; margin-bottom: 36px;
+  opacity: 0; animation: fadeUp 0.9s ease forwards 0.2s;
+}
+.hero-save {
+  font-family: 'Cinzel', serif; font-size: clamp(3rem, 10vw, 6.8rem);
+  font-weight: 600; line-height: 0.88; letter-spacing: 0.1em;
+  color: var(--charcoal); display: block;
+  opacity: 0; animation: fadeUp 0.9s ease forwards 0.4s;
+}
+.hero-the {
+  font-family: 'Pinyon Script', cursive; font-size: clamp(2.6rem, 8vw, 5.2rem);
+  color: var(--crimson); line-height: 1.05; display: block;
+  opacity: 0; animation: fadeUp 0.9s ease forwards 0.6s;
+}
+.hero-date-word {
+  font-family: 'Cinzel', serif; font-size: clamp(3rem, 10vw, 6.8rem);
+  font-weight: 600; line-height: 0.88; letter-spacing: 0.1em;
+  color: var(--charcoal); display: block;
+  opacity: 0; animation: fadeUp 0.9s ease forwards 0.8s;
+}
+.ornament {
+  display: flex; align-items: center; gap: 14px;
+  justify-content: center; margin: 40px auto;
+  opacity: 0; animation: fadeUp 0.9s ease forwards 1s;
+}
+.ornament-line {
+  flex: 1; max-width: 90px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold2), transparent);
+}
+.ornament-center { display: flex; align-items: center; gap: 8px; }
+.ornament-diamond {
+  width: 7px; height: 7px; background: var(--saffron); transform: rotate(45deg);
+}
+.ornament-dot { width: 4px; height: 4px; background: var(--crimson); border-radius: 50%; }
+.hero-names {
+  font-family: 'Cinzel', serif; font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+  letter-spacing: 0.35em; color: var(--charcoal); margin-bottom: 14px;
+  opacity: 0; animation: fadeUp 0.9s ease forwards 1.1s;
+}
+.hero-wedding-date {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 600; color: var(--charcoal); letter-spacing: 0.06em;
+  opacity: 0; animation: fadeUp 0.9s ease forwards 1.2s;
+}
+.hero-location {
+  font-family: 'Cinzel', serif; font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+  letter-spacing: 0.35em; color: var(--sage); margin-top: 10px;
+  opacity: 0; animation: fadeUp 0.9s ease forwards 1.3s;
+}
+.hero-rsvp-note {
+  margin-top: 28px; font-style: italic; font-size: 1.05rem;
+  color: var(--saffron); letter-spacing: 0.04em;
+  opacity: 0; animation: fadeUp 0.9s ease forwards 1.5s;
+}
+.scroll-hint {
+  position: absolute; bottom: 28px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  opacity: 0; animation: fadeUp 1s ease forwards 2.2s;
+}
+.scroll-hint span {
+  font-family: 'Cinzel', serif; font-size: 0.55rem;
+  letter-spacing: 0.35em; color: var(--saffron); text-transform: uppercase;
+}
+.scroll-hint-arrow {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--saffron), transparent);
+  animation: scrollPulse 2.2s ease-in-out infinite;
+}
+
+/* ── WISDOM BAND ── */
+.wisdom-band {
+  background: var(--crimson); position: relative; overflow: hidden;
+}
+.wisdom-band-inner { padding: 32px 24px; text-align: center; position: relative; z-index: 1; }
+.wisdom-band::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: repeating-linear-gradient(90deg,
+    var(--saffron2) 0px, var(--saffron2) 12px,
+    var(--crimson2) 12px, var(--crimson2) 16px);
+}
+.wisdom-band::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+  background: repeating-linear-gradient(90deg,
+    var(--saffron2) 0px, var(--saffron2) 12px,
+    var(--crimson2) 12px, var(--crimson2) 16px);
+}
+.wisdom-band p {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 3vw, 1.45rem);
+  font-style: italic; color: var(--saffron2); letter-spacing: 0.12em;
+}
+.wisdom-band strong { font-weight: 400; color: #fff; font-style: normal; }
+
+/* ── SECTIONS ── */
+section { position: relative; z-index: 1; padding: 80px 24px; }
+.section-inner { max-width: 780px; margin: 0 auto; }
+.section-label {
+  font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.42em;
+  color: var(--saffron); text-transform: uppercase; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 14px; justify-content: center;
+}
+.section-label::before {
+  content: ''; flex: 0 0 28px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--saffron)); opacity: 0.6;
+}
+.section-label::after {
+  content: ''; flex: 0 0 28px; height: 1px;
+  background: linear-gradient(90deg, var(--saffron), transparent); opacity: 0.6;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 300; font-style: italic; color: var(--charcoal);
+  margin-bottom: 52px; text-align: center;
+}
+
+/* ── TIMELINE ── */
+.timeline-section { background: var(--white); }
+.timeline-section .section-inner {
+  border-left: 3px solid transparent;
+  border-image: linear-gradient(to bottom, var(--saffron2), var(--crimson), var(--sage2)) 1;
+  padding-left: 32px;
+}
+.timeline { position: relative; }
+.timeline::before {
+  content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold2) 8%, var(--gold2) 92%, transparent);
+  transform: translateX(-50%);
+}
+.timeline-item {
+  display: grid; grid-template-columns: 1fr 44px 1fr;
+  gap: 0 12px; margin-bottom: 56px; align-items: start;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item:nth-child(odd) .tl-content  { grid-column: 1; text-align: right; }
+.timeline-item:nth-child(odd) .tl-empty    { grid-column: 3; }
+.timeline-item:nth-child(even) .tl-content { grid-column: 3; text-align: left; }
+.timeline-item:nth-child(even) .tl-empty   { grid-column: 1; }
+.tl-dot {
+  grid-column: 2; grid-row: 1; display: flex; align-items: flex-start;
+  justify-content: center; padding-top: 4px; position: relative; z-index: 1;
+}
+.tl-dot-inner {
+  width: 13px; height: 13px; background: var(--saffron);
+  border: 2.5px solid var(--white); outline: 1.5px solid var(--saffron);
+  transform: rotate(45deg); box-shadow: 0 0 0 4px rgba(200,134,10,0.1);
+}
+.tl-time {
+  font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.25em;
+  color: var(--saffron); text-transform: uppercase; margin-bottom: 5px;
+}
+.tl-event {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600;
+  color: var(--charcoal); margin-bottom: 5px;
+}
+.tl-desc { font-size: 0.92rem; font-style: italic; color: #666; line-height: 1.55; }
+
+/* ── RSVP ── */
+.rsvp-section { background: var(--off); padding: 80px 24px; }
+.rsvp-card {
+  position: relative; background: var(--white); text-align: center;
+  max-width: 620px; margin: 0 auto; padding: 64px 52px;
+}
+.rsvp-card::before {
+  content: ''; position: absolute; inset: 0;
+  border: 2px solid var(--gold2); pointer-events: none;
+}
+.rsvp-card::after {
+  content: ''; position: absolute; inset: 8px;
+  border: 1px solid rgba(139,26,26,0.22); pointer-events: none;
+}
+.rsvp-card-top {
+  position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  background: linear-gradient(90deg,
+    var(--crimson) 0%, var(--crimson) 50%,
+    var(--saffron) 50%, var(--saffron) 100%);
+}
+.corner-tl, .corner-tr, .corner-bl, .corner-br {
+  position: absolute; width: 22px; height: 22px; pointer-events: none; z-index: 2;
+}
+.corner-tl { top:-1px; left:-1px; border-top:3px solid var(--crimson); border-left:3px solid var(--crimson); }
+.corner-tr { top:-1px; right:-1px; border-top:3px solid var(--saffron); border-right:3px solid var(--saffron); }
+.corner-bl { bottom:-1px; left:-1px; border-bottom:3px solid var(--saffron); border-left:3px solid var(--saffron); }
+.corner-br { bottom:-1px; right:-1px; border-bottom:3px solid var(--crimson); border-right:3px solid var(--crimson); }
+.rsvp-card p {
+  font-size: 1.1rem; font-style: italic; color: #555; line-height: 1.85;
+  max-width: 440px; margin: 0 auto 32px;
+}
+.rsvp-deadline {
+  font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.3em;
+  color: var(--crimson); text-transform: uppercase; margin-bottom: 36px; display: block;
+}
+.btn-rsvp {
+  display: inline-block; font-family: 'Cinzel', serif; font-size: 0.72rem;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--white);
+  background: var(--crimson); padding: 18px 56px; text-decoration: none;
+  transition: background 0.3s, transform 0.2s; position: relative;
+}
+.btn-rsvp::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(232,168,38,0.18), transparent); pointer-events: none;
+}
+.btn-rsvp:hover { background: #6b1010; transform: translateY(-2px); }
+.btn-note { display: block; margin-top: 16px; font-size: 0.78rem; font-style: italic; color: #aaa; }
+
+/* ── FOOTER ── */
+footer { text-align: center; padding: 64px 24px 48px; position: relative; z-index: 1; background: var(--white); }
+.footer-names {
+  font-family: 'Pinyon Script', cursive; font-size: clamp(2.8rem, 6vw, 4rem);
+  color: var(--charcoal); letter-spacing: 0.04em;
+}
+.footer-date {
+  font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.42em;
+  color: var(--saffron); text-transform: uppercase; margin-top: 12px;
+}
+.footer-location { font-size: 0.88rem; font-style: italic; color: var(--sage); margin-top: 8px; }
+.footer-dzongkha { font-size: 1rem; color: var(--crimson); margin-top: 16px; letter-spacing: 0.1em; opacity: 0.7; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+@keyframes scrollPulse {
+  0%,100% { opacity:0.35; } 50% { opacity:1; }
+}
+.reveal { opacity:0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity:1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.22s; }
+.reveal-delay-3 { transition-delay: 0.34s; }
+.reveal-delay-4 { transition-delay: 0.46s; }
+
+@media (max-width: 600px) {
+  .timeline::before { left: 22px; }
+  .timeline-item { grid-template-columns: 44px 1fr; }
+  .timeline-item:nth-child(odd) .tl-content,
+  .timeline-item:nth-child(even) .tl-content { grid-column: 2; text-align: left; }
+  .timeline-item:nth-child(odd) .tl-empty,
+  .timeline-item:nth-child(even) .tl-empty { display: none; }
+  .tl-dot { grid-column: 1; }
+  .rsvp-card { padding: 48px 24px; }
+  .timeline-section .section-inner { padding-left: 16px; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<!-- ══ TOP ARCHITECTURAL EAVE TRIM ══ -->
+
+<div class="dzong-eave" aria-hidden="true">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <defs>
+      <!-- Repeating fret unit (28px wide) -->
+      <g id="fret-u">
+        <rect x="0"  y="0"  width="4" height="16"/>
+        <rect x="4"  y="0"  width="12" height="4"/>
+        <rect x="16" y="0"  width="4" height="12"/>
+        <rect x="20" y="8"  width="8" height="4"/>
+      </g>
+    </defs>
+    <!-- Layer 1: sage base -->
+    <rect width="1440" height="80" fill="#6b8263"/>
+    <!-- Layer 2: saffron cornice band -->
+    <rect y="0" width="1440" height="28" fill="#c8860a"/>
+    <!-- Hanging bracket drops (saffron → gold) -->
+    <g fill="#d4af47">
+      <polygon points="18,0 26,0 22,14"/><polygon points="66,0 74,0 70,14"/>
+      <polygon points="114,0 122,0 118,14"/><polygon points="162,0 170,0 166,14"/>
+      <polygon points="210,0 218,0 214,14"/><polygon points="258,0 266,0 262,14"/>
+      <polygon points="306,0 314,0 310,14"/><polygon points="354,0 362,0 358,14"/>
+      <polygon points="402,0 410,0 406,14"/><polygon points="450,0 458,0 454,14"/>
+      <polygon points="498,0 506,0 502,14"/><polygon points="546,0 554,0 550,14"/>
+      <polygon points="594,0 602,0 598,14"/><polygon points="642,0 650,0 646,14"/>
+      <polygon points="690,0 698,0 694,14"/><polygon points="738,0 746,0 742,14"/>
+      <polygon points="786,0 794,0 790,14"/><polygon points="834,0 842,0 838,14"/>
+      <polygon points="882,0 890,0 886,14"/><polygon points="930,0 938,0 934,14"/>
+      <polygon points="978,0 986,0 982,14"/><polygon points="1026,0 1034,0 1030,14"/>
+      <polygon points="1074,0 1082,0 1078,14"/><polygon points="1122,0 1130,0 1126,14"/>
+      <polygon points="1170,0 1178,0 1174,14"/><polygon points="1218,0 1226,0 1222,14"/>
+      <polygon points="1266,0 1274,0 1270,14"/><polygon points="1314,0 1322,0 1318,14"/>
+      <polygon points="1362,0 1370,0 1366,14"/><polygon points="1410,0 1418,0 1414,14"/>
+    </g>
+    <!-- Gold pinstripe below saffron -->
+    <rect y="27" width="1440" height="2" fill="#d4af47"/>
+    <!-- Crimson mid band -->
+    <rect y="29" width="1440" height="18" fill="#8b1a1a"/>
+    <!-- White fret pattern on crimson -->
+    <g fill="#fdfaf5" opacity="0.2" transform="translate(0,31)">
+      <use href="#fret-u" x="0"/><use href="#fret-u" x="28"/><use href="#fret-u" x="56"/>
+      <use href="#fret-u" x="84"/><use href="#fret-u" x="112"/><use href="#fret-u" x="140"/>
+      <use href="#fret-u" x="168"/><use href="#fret-u" x="196"/><use href="#fret-u" x="224"/>
+      <use href="#fret-u" x="252"/><use href="#fret-u" x="280"/><use href="#fret-u" x="308"/>
+      <use href="#fret-u" x="336"/><use href="#fret-u" x="364"/><use href="#fret-u" x="392"/>
+      <use href="#fret-u" x="420"/><use href="#fret-u" x="448"/><use href="#fret-u" x="476"/>
+      <use href="#fret-u" x="504"/><use href="#fret-u" x="532"/><use href="#fret-u" x="560"/>
+      <use href="#fret-u" x="588"/><use href="#fret-u" x="616"/><use href="#fret-u" x="644"/>
+      <use href="#fret-u" x="672"/><use href="#fret-u" x="700"/><use href="#fret-u" x="728"/>
+      <use href="#fret-u" x="756"/><use href="#fret-u" x="784"/><use href="#fret-u" x="812"/>
+      <use href="#fret-u" x="840"/><use href="#fret-u" x="868"/><use href="#fret-u" x="896"/>
+      <use href="#fret-u" x="924"/><use href="#fret-u" x="952"/><use href="#fret-u" x="980"/>
+      <use href="#fret-u" x="1008"/><use href="#fret-u" x="1036"/><use href="#fret-u" x="1064"/>
+      <use href="#fret-u" x="1092"/><use href="#fret-u" x="1120"/><use href="#fret-u" x="1148"/>
+      <use href="#fret-u" x="1176"/><use href="#fret-u" x="1204"/><use href="#fret-u" x="1232"/>
+      <use href="#fret-u" x="1260"/><use href="#fret-u" x="1288"/><use href="#fret-u" x="1316"/>
+      <use href="#fret-u" x="1344"/><use href="#fret-u" x="1372"/><use href="#fret-u" x="1400"/>
+    </g>
+    <!-- Gold pinstripe below crimson -->
+    <rect y="47" width="1440" height="2" fill="#d4af47"/>
+    <!-- Sage lower band with lotus symbols -->
+    <rect y="49" width="1440" height="31" fill="#6b8263"/>
+    <g fill="#fdfaf5" opacity="0.5" font-size="11" font-family="serif" text-anchor="middle">
+      <text x="36" y="71">✿</text><text x="108" y="71">✿</text><text x="180" y="71">✿</text>
+      <text x="252" y="71">✿</text><text x="324" y="71">✿</text><text x="396" y="71">✿</text>
+      <text x="468" y="71">✿</text><text x="540" y="71">✿</text><text x="612" y="71">✿</text>
+      <text x="684" y="71">✿</text><text x="756" y="71">✿</text><text x="828" y="71">✿</text>
+      <text x="900" y="71">✿</text><text x="972" y="71">✿</text><text x="1044" y="71">✿</text>
+      <text x="1116" y="71">✿</text><text x="1188" y="71">✿</text><text x="1260" y="71">✿</text>
+      <text x="1332" y="71">✿</text><text x="1404" y="71">✿</text>
+    </g>
+    <!-- Final gold edge line -->
+    <rect y="78" width="1440" height="2" fill="#d4af47"/>
+  </svg>
+</div>
+
+<!-- ══ HERO ══ -->
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">You are cordially invited</p>
+    <h1>
+      <span class="hero-save">SAVE</span>
+      <span class="hero-the">the</span>
+      <span class="hero-date-word">DATE</span>
+    </h1>
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-center">
+        <div class="ornament-dot"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-dot"></div>
+      </div>
+      <div class="ornament-line"></div>
+    </div>
+    <p class="hero-names">LHENNY &nbsp;+&nbsp; DOLMA</p>
+    <p class="hero-wedding-date">10 · 18 · 2026</p>
+    <p class="hero-location">BHUTAN</p>
+    <p class="hero-rsvp-note">Please RSVP by June 1, 2026</p>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-hint-arrow"></div>
+  </div>
+</section>
+
+<!-- ══ SAFFRON FRETWORK DIVIDER ══ -->
+
+<div class="dzong-eave" aria-hidden="true">
+  <svg viewBox="0 0 1440 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <defs>
+      <g id="fret-s">
+        <rect x="0" y="5"  width="4" height="16"/>
+        <rect x="4" y="5"  width="12" height="4"/>
+        <rect x="16" y="5" width="4" height="12"/>
+        <rect x="20" y="13" width="8" height="4"/>
+      </g>
+    </defs>
+    <rect width="1440" height="30" fill="#c8860a"/>
+    <rect width="1440" height="2" fill="#d4af47"/>
+    <rect y="28" width="1440" height="2" fill="#d4af47"/>
+    <g fill="#fdfaf5" opacity="0.25">
+      <use href="#fret-s" x="0"/><use href="#fret-s" x="28"/><use href="#fret-s" x="56"/>
+      <use href="#fret-s" x="84"/><use href="#fret-s" x="112"/><use href="#fret-s" x="140"/>
+      <use href="#fret-s" x="168"/><use href="#fret-s" x="196"/><use href="#fret-s" x="224"/>
+      <use href="#fret-s" x="252"/><use href="#fret-s" x="280"/><use href="#fret-s" x="308"/>
+      <use href="#fret-s" x="336"/><use href="#fret-s" x="364"/><use href="#fret-s" x="392"/>
+      <use href="#fret-s" x="420"/><use href="#fret-s" x="448"/><use href="#fret-s" x="476"/>
+      <use href="#fret-s" x="504"/><use href="#fret-s" x="532"/><use href="#fret-s" x="560"/>
+      <use href="#fret-s" x="588"/><use href="#fret-s" x="616"/><use href="#fret-s" x="644"/>
+      <use href="#fret-s" x="672"/><use href="#fret-s" x="700"/><use href="#fret-s" x="728"/>
+      <use href="#fret-s" x="756"/><use href="#fret-s" x="784"/><use href="#fret-s" x="812"/>
+      <use href="#fret-s" x="840"/><use href="#fret-s" x="868"/><use href="#fret-s" x="896"/>
+      <use href="#fret-s" x="924"/><use href="#fret-s" x="952"/><use href="#fret-s" x="980"/>
+      <use href="#fret-s" x="1008"/><use href="#fret-s" x="1036"/><use href="#fret-s" x="1064"/>
+      <use href="#fret-s" x="1092"/><use href="#fret-s" x="1120"/><use href="#fret-s" x="1148"/>
+      <use href="#fret-s" x="1176"/><use href="#fret-s" x="1204"/><use href="#fret-s" x="1232"/>
+      <use href="#fret-s" x="1260"/><use href="#fret-s" x="1288"/><use href="#fret-s" x="1316"/>
+      <use href="#fret-s" x="1344"/><use href="#fret-s" x="1372"/><use href="#fret-s" x="1400"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ══ WISDOM BAND ══ -->
+
+<div class="wisdom-band">
+  <div class="wisdom-band-inner">
+    <p><strong>ལྷེན་ཉི</strong> &nbsp;༄&nbsp; <em>Two souls, one journey across the mountains</em> &nbsp;༄&nbsp; <strong>སྒྲོལ་མ</strong></p>
+  </div>
+</div>
+
+<!-- ══ INVERTED FRETWORK BELOW WISDOM ══ -->
+
+<div class="dzong-eave" aria-hidden="true">
+  <svg viewBox="0 0 1440 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <defs>
+      <g id="fret-inv">
+        <rect x="0"  y="9"  width="4" height="16"/>
+        <rect x="4"  y="21" width="12" height="4"/>
+        <rect x="16" y="9"  width="4" height="12"/>
+        <rect x="20" y="9"  width="8" height="4"/>
+      </g>
+    </defs>
+    <rect width="1440" height="30" fill="#c8860a"/>
+    <rect width="1440" height="2" fill="#d4af47"/>
+    <rect y="28" width="1440" height="2" fill="#d4af47"/>
+    <g fill="#fdfaf5" opacity="0.25">
+      <use href="#fret-inv" x="0"/><use href="#fret-inv" x="28"/><use href="#fret-inv" x="56"/>
+      <use href="#fret-inv" x="84"/><use href="#fret-inv" x="112"/><use href="#fret-inv" x="140"/>
+      <use href="#fret-inv" x="168"/><use href="#fret-inv" x="196"/><use href="#fret-inv" x="224"/>
+      <use href="#fret-inv" x="252"/><use href="#fret-inv" x="280"/><use href="#fret-inv" x="308"/>
+      <use href="#fret-inv" x="336"/><use href="#fret-inv" x="364"/><use href="#fret-inv" x="392"/>
+      <use href="#fret-inv" x="420"/><use href="#fret-inv" x="448"/><use href="#fret-inv" x="476"/>
+      <use href="#fret-inv" x="504"/><use href="#fret-inv" x="532"/><use href="#fret-inv" x="560"/>
+      <use href="#fret-inv" x="588"/><use href="#fret-inv" x="616"/><use href="#fret-inv" x="644"/>
+      <use href="#fret-inv" x="672"/><use href="#fret-inv" x="700"/><use href="#fret-inv" x="728"/>
+      <use href="#fret-inv" x="756"/><use href="#fret-inv" x="784"/><use href="#fret-inv" x="812"/>
+      <use href="#fret-inv" x="840"/><use href="#fret-inv" x="868"/><use href="#fret-inv" x="896"/>
+      <use href="#fret-inv" x="924"/><use href="#fret-inv" x="952"/><use href="#fret-inv" x="980"/>
+      <use href="#fret-inv" x="1008"/><use href="#fret-inv" x="1036"/><use href="#fret-inv" x="1064"/>
+      <use href="#fret-inv" x="1092"/><use href="#fret-inv" x="1120"/><use href="#fret-inv" x="1148"/>
+      <use href="#fret-inv" x="1176"/><use href="#fret-inv" x="1204"/><use href="#fret-inv" x="1232"/>
+      <use href="#fret-inv" x="1260"/><use href="#fret-inv" x="1288"/><use href="#fret-inv" x="1316"/>
+      <use href="#fret-inv" x="1344"/><use href="#fret-inv" x="1372"/><use href="#fret-inv" x="1400"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ══ TIMELINE ══ -->
+
+<section class="timeline-section">
+  <div class="section-inner">
+    <p class="section-label reveal">Day of Celebration</p>
+    <h2 class="section-title reveal reveal-delay-1">October 18th, 2026</h2>
+    <div class="timeline">
+
+```
+  <div class="timeline-item">
+    <div class="tl-content reveal">
+      <p class="tl-time">3:00 PM</p>
+      <p class="tl-event">Guest Arrival</p>
+      <p class="tl-desc">Welcome drinks &amp; traditional Bhutanese butter tea as guests are seated</p>
+    </div>
+    <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+    <div class="tl-empty"></div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="tl-empty"></div>
+    <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+    <div class="tl-content reveal reveal-delay-1">
+      <p class="tl-time">4:00 PM</p>
+      <p class="tl-event">Wedding Ceremony</p>
+      <p class="tl-desc">A traditional ceremony beneath the mountain sky</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="tl-content reveal reveal-delay-2">
+      <p class="tl-time">5:30 PM</p>
+      <p class="tl-event">Cocktail Hour</p>
+      <p class="tl-desc">Mingle, photograph, and celebrate with the newlyweds</p>
+    </div>
+    <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+    <div class="tl-empty"></div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="tl-empty"></div>
+    <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+    <div class="tl-content reveal reveal-delay-3">
+      <p class="tl-time">7:00 PM</p>
+      <p class="tl-event">Reception Dinner</p>
+      <p class="tl-desc">Feast, toasts, and dancing well into the evening</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="tl-content reveal reveal-delay-4">
+      <p class="tl-time">9:30 PM</p>
+      <p class="tl-event">Celebration Continues</p>
+      <p class="tl-desc">Live music, dancing, and starlit farewells</p>
+    </div>
+    <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+    <div class="tl-empty"></div>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ══ SAGE DIAMOND DIVIDER ══ -->
+
+<div class="dzong-eave" aria-hidden="true">
+  <svg viewBox="0 0 1440 34" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <rect width="1440" height="34" fill="#6b8263"/>
+    <rect width="1440" height="2" fill="#d4af47"/>
+    <rect y="32" width="1440" height="2" fill="#d4af47"/>
+    <rect y="10" width="1440" height="14" fill="#8b1a1a" opacity="0.4"/>
+    <g fill="#e8a826" opacity="0.8">
+      <polygon points="24,17 30,11 36,17 30,23"/>
+      <polygon points="72,17 78,11 84,17 78,23"/>
+      <polygon points="120,17 126,11 132,17 126,23"/>
+      <polygon points="168,17 174,11 180,17 174,23"/>
+      <polygon points="216,17 222,11 228,17 222,23"/>
+      <polygon points="264,17 270,11 276,17 270,23"/>
+      <polygon points="312,17 318,11 324,17 318,23"/>
+      <polygon points="360,17 366,11 372,17 366,23"/>
+      <polygon points="408,17 414,11 420,17 414,23"/>
+      <polygon points="456,17 462,11 468,17 462,23"/>
+      <polygon points="504,17 510,11 516,17 510,23"/>
+      <polygon points="552,17 558,11 564,17 558,23"/>
+      <polygon points="600,17 606,11 612,17 606,23"/>
+      <polygon points="648,17 654,11 660,17 654,23"/>
+      <polygon points="696,17 702,11 708,17 702,23"/>
+      <polygon points="744,17 750,11 756,17 750,23"/>
+      <polygon points="792,17 798,11 804,17 798,23"/>
+      <polygon points="840,17 846,11 852,17 846,23"/>
+      <polygon points="888,17 894,11 900,17 894,23"/>
+      <polygon points="936,17 942,11 948,17 942,23"/>
+      <polygon points="984,17 990,11 996,17 990,23"/>
+      <polygon points="1032,17 1038,11 1044,17 1038,23"/>
+      <polygon points="1080,17 1086,11 1092,17 1086,23"/>
+      <polygon points="1128,17 1134,11 1140,17 1134,23"/>
+      <polygon points="1176,17 1182,11 1188,17 1182,23"/>
+      <polygon points="1224,17 1230,11 1236,17 1230,23"/>
+      <polygon points="1272,17 1278,11 1284,17 1278,23"/>
+      <polygon points="1320,17 1326,11 1332,17 1326,23"/>
+      <polygon points="1368,17 1374,11 1380,17 1374,23"/>
+      <polygon points="1416,17 1422,11 1428,17 1422,23"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ══ RSVP ══ -->
+
+<section class="rsvp-section">
+  <div class="section-inner">
+    <p class="section-label reveal">Kindly Reply</p>
+    <h2 class="section-title reveal reveal-delay-1">RSVP</h2>
+    <div class="rsvp-card reveal reveal-delay-2">
+      <div class="rsvp-card-top"></div>
+      <div class="corner-tl"></div><div class="corner-tr"></div>
+      <div class="corner-bl"></div><div class="corner-br"></div>
+      <p>We would be honoured by your presence as we celebrate our union in the Kingdom of Bhutan. Please let us know if you'll be able to join us on this special day.</p>
+      <span class="rsvp-deadline">Kindly respond by June 1, 2026</span>
+      <!-- Replace href with your Google Form URL -->
+      <a class="btn-rsvp" href="https://forms.google.com/YOUR_FORM_ID" target="_blank" rel="noopener">RSVP Now</a>
+      <span class="btn-note">You will be redirected to our RSVP form</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SAFFRON FRETWORK BEFORE FOOTER ══ -->
+
+<div class="dzong-eave" aria-hidden="true">
+  <svg viewBox="0 0 1440 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <rect width="1440" height="30" fill="#c8860a"/>
+    <rect width="1440" height="2" fill="#d4af47"/>
+    <rect y="28" width="1440" height="2" fill="#d4af47"/>
+    <g fill="#fdfaf5" opacity="0.25">
+      <use href="#fret-s" x="0"/><use href="#fret-s" x="28"/><use href="#fret-s" x="56"/>
+      <use href="#fret-s" x="84"/><use href="#fret-s" x="112"/><use href="#fret-s" x="140"/>
+      <use href="#fret-s" x="168"/><use href="#fret-s" x="196"/><use href="#fret-s" x="224"/>
+      <use href="#fret-s" x="252"/><use href="#fret-s" x="280"/><use href="#fret-s" x="308"/>
+      <use href="#fret-s" x="336"/><use href="#fret-s" x="364"/><use href="#fret-s" x="392"/>
+      <use href="#fret-s" x="420"/><use href="#fret-s" x="448"/><use href="#fret-s" x="476"/>
+      <use href="#fret-s" x="504"/><use href="#fret-s" x="532"/><use href="#fret-s" x="560"/>
+      <use href="#fret-s" x="588"/><use href="#fret-s" x="616"/><use href="#fret-s" x="644"/>
+      <use href="#fret-s" x="672"/><use href="#fret-s" x="700"/><use href="#fret-s" x="728"/>
+      <use href="#fret-s" x="756"/><use href="#fret-s" x="784"/><use href="#fret-s" x="812"/>
+      <use href="#fret-s" x="840"/><use href="#fret-s" x="868"/><use href="#fret-s" x="896"/>
+      <use href="#fret-s" x="924"/><use href="#fret-s" x="952"/><use href="#fret-s" x="980"/>
+      <use href="#fret-s" x="1008"/><use href="#fret-s" x="1036"/><use href="#fret-s" x="1064"/>
+      <use href="#fret-s" x="1092"/><use href="#fret-s" x="1120"/><use href="#fret-s" x="1148"/>
+      <use href="#fret-s" x="1176"/><use href="#fret-s" x="1204"/><use href="#fret-s" x="1232"/>
+      <use href="#fret-s" x="1260"/><use href="#fret-s" x="1288"/><use href="#fret-s" x="1316"/>
+      <use href="#fret-s" x="1344"/><use href="#fret-s" x="1372"/><use href="#fret-s" x="1400"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ══ FOOTER ══ -->
+
+<footer>
+  <p class="footer-names">Lhenny &amp; Dolma</p>
+  <p class="footer-date">October 18 · 2026 · Bhutan</p>
+  <p class="footer-location">With joy and gratitude from our families to yours</p>
+  <p class="footer-dzongkha">ཐུགས་རྗེ་ཆེ</p>
+</footer>
+
+<!-- ══ BOTTOM EAVE (inverted / mirrored) ══ -->
+
+<div class="dzong-eave" aria-hidden="true">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <!-- Mirror of top: sage → crimson → saffron with upward drops -->
+    <rect width="1440" height="80" fill="#6b8263"/>
+    <rect y="0" width="1440" height="2" fill="#d4af47"/>
+    <!-- Sage lotus band -->
+    <rect width="1440" height="30" fill="#6b8263"/>
+    <g fill="#fdfaf5" opacity="0.5" font-size="11" font-family="serif" text-anchor="middle">
+      <text x="36" y="20">✿</text><text x="108" y="20">✿</text><text x="180" y="20">✿</text>
+      <text x="252" y="20">✿</text><text x="324" y="20">✿</text><text x="396" y="20">✿</text>
+      <text x="468" y="20">✿</text><text x="540" y="20">✿</text><text x="612" y="20">✿</text>
+      <text x="684" y="20">✿</text><text x="756" y="20">✿</text><text x="828" y="20">✿</text>
+      <text x="900" y="20">✿</text><text x="972" y="20">✿</text><text x="1044" y="20">✿</text>
+      <text x="1116" y="20">✿</text><text x="1188" y="20">✿</text><text x="1260" y="20">✿</text>
+      <text x="1332" y="20">✿</text><text x="1404" y="20">✿</text>
+    </g>
+    <!-- Gold line -->
+    <rect y="30" width="1440" height="2" fill="#d4af47"/>
+    <!-- Crimson band -->
+    <rect y="32" width="1440" height="18" fill="#8b1a1a"/>
+    <g fill="#fdfaf5" opacity="0.2" transform="translate(0,34)">
+      <use href="#fret-u" x="0"/><use href="#fret-u" x="28"/><use href="#fret-u" x="56"/>
+      <use href="#fret-u" x="84"/><use href="#fret-u" x="112"/><use href="#fret-u" x="140"/>
+      <use href="#fret-u" x="168"/><use href="#fret-u" x="196"/><use href="#fret-u" x="224"/>
+      <use href="#fret-u" x="252"/><use href="#fret-u" x="280"/><use href="#fret-u" x="308"/>
+      <use href="#fret-u" x="336"/><use href="#fret-u" x="364"/><use href="#fret-u" x="392"/>
+      <use href="#fret-u" x="420"/><use href="#fret-u" x="448"/><use href="#fret-u" x="476"/>
+      <use href="#fret-u" x="504"/><use href="#fret-u" x="532"/><use href="#fret-u" x="560"/>
+      <use href="#fret-u" x="588"/><use href="#fret-u" x="616"/><use href="#fret-u" x="644"/>
+      <use href="#fret-u" x="672"/><use href="#fret-u" x="700"/><use href="#fret-u" x="728"/>
+      <use href="#fret-u" x="756"/><use href="#fret-u" x="784"/><use href="#fret-u" x="812"/>
+      <use href="#fret-u" x="840"/><use href="#fret-u" x="868"/><use href="#fret-u" x="896"/>
+      <use href="#fret-u" x="924"/><use href="#fret-u" x="952"/><use href="#fret-u" x="980"/>
+      <use href="#fret-u" x="1008"/><use href="#fret-u" x="1036"/><use href="#fret-u" x="1064"/>
+      <use href="#fret-u" x="1092"/><use href="#fret-u" x="1120"/><use href="#fret-u" x="1148"/>
+      <use href="#fret-u" x="1176"/><use href="#fret-u" x="1204"/><use href="#fret-u" x="1232"/>
+      <use href="#fret-u" x="1260"/><use href="#fret-u" x="1288"/><use href="#fret-u" x="1316"/>
+      <use href="#fret-u" x="1344"/><use href="#fret-u" x="1372"/><use href="#fret-u" x="1400"/>
+    </g>
+    <!-- Gold line -->
+    <rect y="50" width="1440" height="2" fill="#d4af47"/>
+    <!-- Saffron base with upward drops -->
+    <rect y="52" width="1440" height="28" fill="#c8860a"/>
+    <g fill="#d4af47">
+      <polygon points="18,80 26,80 22,66"/><polygon points="66,80 74,80 70,66"/>
+      <polygon points="114,80 122,80 118,66"/><polygon points="162,80 170,80 166,66"/>
+      <polygon points="210,80 218,80 214,66"/><polygon points="258,80 266,80 262,66"/>
+      <polygon points="306,80 314,80 310,66"/><polygon points="354,80 362,80 358,66"/>
+      <polygon points="402,80 410,80 406,66"/><polygon points="450,80 458,80 454,66"/>
+      <polygon points="498,80 506,80 502,66"/><polygon points="546,80 554,80 550,66"/>
+      <polygon points="594,80 602,80 598,66"/><polygon points="642,80 650,80 646,66"/>
+      <polygon points="690,80 698,80 694,66"/><polygon points="738,80 746,80 742,66"/>
+      <polygon points="786,80 794,80 790,66"/><polygon points="834,80 842,80 838,66"/>
+      <polygon points="882,80 890,80 886,66"/><polygon points="930,80 938,80 934,66"/>
+      <polygon points="978,80 986,80 982,66"/><polygon points="1026,80 1034,80 1030,66"/>
+      <polygon points="1074,80 1082,80 1078,66"/><polygon points="1122,80 1130,80 1126,66"/>
+      <polygon points="1170,80 1178,80 1174,66"/><polygon points="1218,80 1226,80 1222,66"/>
+      <polygon points="1266,80 1274,80 1270,66"/><polygon points="1314,80 1322,80 1318,66"/>
+      <polygon points="1362,80 1370,80 1366,66"/><polygon points="1410,80 1418,80 1414,66"/>
+    </g>
+  </svg>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
